@@ -158,7 +158,7 @@ Given that the features followed a normal distribution, we felt confident Scikit
 \subsection{Modeling}
 As stated above, we would like to predict the critical temperature of a superconductor using linear regression with regularization then investigate the important features. Specifically, Lasso and Ridge regularization were explored. These methods allow us to reduce model complexity and prevent over-fitting. The function of Lasso is to employ a cost function (\emph{Alpha} or \emph{Lamda}), whereby the account of magnitudes can lead to zero coefficients---a highly useful tool for the purpose of feature selection. Ridge, on the other hand, employs the same cost function, but taking into account the square of the coefficients instead, shrinking coefficients and thus aiding in the prevention of overfitting.
 
-We utilized Scikit-Learn’s \emph{pipeline} class to set up the gridsearch workflow; Lasso and Ridge classes to train the models; gridsearchcv class to execute the search and refit the best performing model; and cross-validate class to ascertain their mean RMSE from five-fold, shuffled internal cross validation. We tuned Lasso’s alpha to be between 0.1-10 with 200 samples and Ridge’s alpha to be 0.1-100 with 300 samples. The feature importance was extracted from the best model of each algorithm and its values transformed to the absolute root because we care about the magnitude of the coefficients, not the sign of the coefficient.
+Given our goal to investigate feature importance, an L1 model does make more conceptual sense. Nonetheless, we proceed by creating both models. We utilized Scikit-Learn’s \emph{pipeline} class to set up the gridsearch workflow, \emph{Lasso} and \emph{Ridge} classes to train the models, \emph{gridsearchcv} class to execute the hyper-parameter search then refit the best performing model, and \emph{cross\_validate} class to ascertain their mean RMSE from five-fold, shuffled internal cross validation. The feature importance was extracted from the best model of each algorithm and its values transformed to the absolute root because we care about the magnitude of the coefficients, not the sign of the coefficient.
 
 
 %------------------------------------------------
@@ -166,6 +166,7 @@ We utilized Scikit-Learn’s \emph{pipeline} class to set up the gridsearch work
 \section{Results}
 
 \subsection{Regularization}
+We conducted a Lasso and Ridge gridsearch with hyper-parameter tuning. Lasso's alpha was set to be between 0.1-10 with 200 samples and Ridge's alpha to be 0.1-100 with 300 samples.
 Displayed below is a table of the optimal alpha from each model and their respective five-fold cross validation metrics.\\
 \begin{table}[h!]
 \centering
@@ -222,17 +223,17 @@ Please refer to the attached Python notebook.
 
 \begin{thebibliography}{99} % Bibliography - this is intentionally simple in this template
 
-\bibitem[Chu, Deng, and Lv, 2015]{}Chu, C. W., Deng, L. Z., and Lv, B. (2015). Hole-doped cuprate high temperature superconductors. {\em Physica} C: Superconductivity and its Applications, 514, 290-313.
+\bibitem[Chu, Deng, and Lv, 2015]{}Chu, C. W., Deng, L. Z., and Lv, B. (2015). \newline
+\newblock Hole-doped cuprate high temperature superconductors.
+\newblock {\em Physica} C: Superconductivity and its Applications, 514, 290-313.
 
-\bibitem[Superconductivity. CERN, 2009]{}Superconductivity. CERN. (n.d.). Retrieved September 7, 2022, from https://home.cern/science/engineering/superconductivity 
+\bibitem[Superconductivity. CERN, 2009]{}Superconductivity. CERN. (n.d.). 
+\newblock Retrieved September 7, 2022, from https://home.cern/science/engineering/superconductivity 
 
-\bibitem[Combescot, 2022]{}Combescot, R. (2022). Superconductivity: An Introduction. Singapore: Cambridge University Press.
+\bibitem[Combescot, 2022]{}Combescot, R. (2022). \newline
+Superconductivity: An Introduction.\newline
+ \newblock Singapore: {\em Cambridge University Press.}
 
-\bibitem[Figueredo and Wolf, 2009]{Figueredo:2009dg}
-Figueredo, A.~J. and Wolf, P. S.~A. (2009).
-\newblock Assortative pairing and life history strategy - a cross-cultural
-  study.
-\newblock {\em Human Nature}, 20:317--330.
  
 \end{thebibliography}
 
