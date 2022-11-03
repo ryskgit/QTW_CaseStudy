@@ -4,3 +4,5 @@
 # poetry modules
 poetry.lock
 pyproject.toml
+
+all_train.csv
