@@ -1,0 +1,6 @@
+# virtual env
+.venv
+
+# poetry modules
+poetry.lock
+pyproject.toml
